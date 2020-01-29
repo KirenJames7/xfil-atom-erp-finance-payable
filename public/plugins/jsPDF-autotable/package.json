@@ -1,0 +1,58 @@
+{
+  "name": "jspdf-autotable",
+  "version": "3.2.4",
+  "description": "Generate pdf tables with javascript (jsPDF plugin)",
+  "main": "dist/jspdf.plugin.autotable.js",
+  "types": "dist/index",
+  "files": [
+    "dist/*"
+  ],
+  "directories": {
+    "example": "examples"
+  },
+  "peerDependencies": {
+    "jspdf": "^1.5.3"
+  },
+  "devDependencies": {
+    "@webpack-cli/migrate": "^0.1.8",
+    "dts-bundle-generator": "^3.2.0",
+    "jspdf": "^1.5.3",
+    "mocha": "^6.2.0",
+    "mock-browser": "^0.92.14",
+    "mock-require": "^3.0.3",
+    "object-assign": "^4.1.1",
+    "object.entries": "^1.1.0",
+    "ts-loader": "^6.0.4",
+    "ts-node": "^8.3.0",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.5.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server -d --open",
+    "build": "webpack --mode=production && npm run types",
+    "test": "mocha --require ts-node/register",
+    "version": "npm test && npm run build && git add -A dist",
+    "deploy": "git push --follow-tags && git push origin master:gh-pages -f && npm publish",
+    "types": "dts-bundle-generator src/main.ts -o ./dist/index.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simonbengtsson/jsPDF-AutoTable.git"
+  },
+  "keywords": [
+    "pdf",
+    "table",
+    "jspdf"
+  ],
+  "author": "Simon Bengtsson <dev@simonbengtsson.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simonbengtsson/jsPDF-AutoTable/issues"
+  },
+  "homepage": "https://simonbengtsson.github.io/jsPDF-AutoTable",
+  "dependencies": {}
+}
